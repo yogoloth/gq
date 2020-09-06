@@ -18,7 +18,7 @@ func main() {
 	config := parse_args()
 	var buffer []byte
 
-	fmt.Printf("config: %v\n\n", config)
+	//fmt.Printf("config: %v\n\n", config)
 	input, err := ioutil.ReadFile(config.filepath)
 	if err != nil {
 		fmt.Printf("read file %v error\n", err)
