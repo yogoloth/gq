@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ghodss/yaml"
 	"io/ioutil"
+	"os"
 )
 
 type config_t struct {
@@ -16,10 +17,17 @@ type config_t struct {
 func main() {
 
 	config := parse_args()
-	var buffer []byte
-
 	//fmt.Printf("config: %v\n\n", config)
-	input, err := ioutil.ReadFile(config.filepath)
+
+	var buffer []byte
+	var input []byte
+	var err error
+
+	if config.filepath == "stdin" {
+		input, err = ioutil.ReadAll(os.Stdin)
+	} else {
+		input, err = ioutil.ReadFile(config.filepath)
+	}
 	if err != nil {
 		fmt.Printf("read file %v error\n", err)
 		return
