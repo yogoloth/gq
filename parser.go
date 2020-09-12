@@ -22,6 +22,7 @@ func parse_args() *config_t {
 		args_error(os.Args)
 	}
 	flag.BoolVar(&is_yaml, "y", false, "output type is yaml")
+	flag.StringVar(&config.engine, "engine", "jq", "call external jq or internal libjq")
 	flag.Parse()
 
 	if is_yaml {

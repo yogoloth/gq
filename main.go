@@ -8,6 +8,7 @@ import (
 )
 
 type config_t struct {
+	engine    string
 	from_type string
 	to_type   string
 	query     string
@@ -17,7 +18,7 @@ type config_t struct {
 func main() {
 
 	config := parse_args()
-	//fmt.Printf("config: %v\n\n", config)
+	fmt.Printf("config: %v\n\n", config)
 
 	var buffer []byte
 	var input []byte
@@ -45,9 +46,17 @@ func main() {
 
 	}
 
-	buffer, err = jq(config.query, buffer)
-	if err != nil {
-		fmt.Printf("run jq err: %v\n", err)
+	switch config.engine {
+	case "jq":
+		buffer, err = jq(config.query, buffer)
+		if err != nil {
+			fmt.Printf("run jq err: %v\n", err)
+			return
+		}
+	case "libjq":
+
+	default:
+		fmt.Printf("no engine %s\n", config.engine)
 		return
 	}
 

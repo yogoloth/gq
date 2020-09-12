@@ -3,3 +3,4 @@ kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "2"
+    comment: 你好
