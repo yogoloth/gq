@@ -1,6 +1,9 @@
 # github.com/ghodss/yaml v1.0.0
 ## explicit
 github.com/ghodss/yaml
+# github.com/threatgrid/jq-go v0.0.0-20140326011412-3e60d678d7d9
+## explicit
+github.com/threatgrid/jq-go
 # gopkg.in/yaml.v2 v2.3.0
 ## explicit
 gopkg.in/yaml.v2
