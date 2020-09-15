@@ -10,7 +10,7 @@ engine libjq will use embedded libjq ,and it's default option
 ./gq -y '.a.b="你好"' sample/test.yml
 ./yq -y '.a.b="你好"' sample/test.yml
 ````
-engine libjq will call external jq like yq
+engine jq will call external jq like yq
 ````
 ./gq -y --engine jq '.a.b="你好"' sample/test.yml
 ./yq -y --engine jq '.a.b="你好"' sample/test.yml
