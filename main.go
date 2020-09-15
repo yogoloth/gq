@@ -97,6 +97,7 @@ func main() {
 		fmt.Printf("do work error: %v\n", err)
 		return
 	}
-	fmt.Println(string(result))
-
+	if result != nil {
+		fmt.Printf("%s", string(result))
+	}
 }
