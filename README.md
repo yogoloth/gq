@@ -4,18 +4,17 @@ go clone of yq (https://github.com/kislyuk/yq)
 
 # compile
 
+- link with libjq.a and libonig.a in modules/lib
+````
 make static
 ````
-link with libjq.a and libonig.a in modules/lib
+- link with system libjq.so and libonig.so
 ````
 make dynamic
-
 ````
-link with system libjq.so and libonig.so
+- compile libjq with modules/jq(jq-1.6) and do static link
 ````
 make build
-````
-compile libjq with modules/jq(jq-1.6) and do static link
 ````
 
 # useage
