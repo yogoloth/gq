@@ -1,3 +1,7 @@
+# gq
+
+go clone of yq (https://github.com/kislyuk/yq)
+
 # compile
 
 make static
@@ -14,10 +18,7 @@ make build
 compile libjq with modules/jq(jq-1.6) and do static link
 ````
 
-
-# gq
-
-go clone of yq (https://github.com/kislyuk/yq)
+# useage
 
 engine libjq will use embedded libjq ,and it's default option
 ````
