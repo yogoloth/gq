@@ -1,3 +1,20 @@
+# compile
+
+make static
+````
+link with libjq.a and libonig.a in modules/lib
+````
+make dynamic
+
+````
+link with system libjq.so and libonig.so
+````
+make build
+````
+compile libjq with modules/jq(jq-1.6) and do static link
+````
+
+
 # gq
 
 go clone of yq (https://github.com/kislyuk/yq)
