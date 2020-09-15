@@ -17,7 +17,7 @@ make dynamic
 make build
 ````
 
-# useage
+# usage
 
 engine libjq will use embedded libjq ,and it's default option
 ````
