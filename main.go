@@ -45,7 +45,9 @@ func do_main(config *config_t) ([]byte, error) {
 		//	fmt.Printf("err: %v\n", err)
 		//	return
 		//}
-		yaml.Unmarshal(input, &mid_result)
+		if err = yaml.Unmarshal(input, &mid_result); err != nil {
+			return nil, errors.New(fmt.Sprintf("decode input  yaml %v\n", err))
+		}
 	} else {
 		return nil, errors.New(fmt.Sprintf("input type is not support yet: %v\n", config.from_type))
 
