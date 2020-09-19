@@ -20,10 +20,9 @@ type config_t struct {
 	filepath  string
 }
 
-func do_main(config *config_t) ([]byte, error) {
+func do_main(config *config_t) (output []byte, err error) {
 	var buffer []byte
 	var input []byte
-	var err error
 	mid_result := make(map[string]interface{})
 
 	if config.verbose {
@@ -36,7 +35,8 @@ func do_main(config *config_t) ([]byte, error) {
 		input, err = ioutil.ReadFile(config.filepath)
 	}
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("read file %v error\n", err))
+		err = errors.New(fmt.Sprintf("read file %v error\n", err))
+		return
 	}
 
 	if config.from_type == "yaml" {
@@ -46,10 +46,12 @@ func do_main(config *config_t) ([]byte, error) {
 		//	return
 		//}
 		if err = yaml.Unmarshal(input, &mid_result); err != nil {
-			return nil, errors.New(fmt.Sprintf("decode input yaml - %v\n", err))
+			err = errors.New(fmt.Sprintf("decode input yaml - %v\n", err))
+			return
 		}
 	} else {
-		return nil, errors.New(fmt.Sprintf("input type is not support yet: %v\n", config.from_type))
+		err = errors.New(fmt.Sprintf("input type is not support yet: %v\n", config.from_type))
+		return
 
 	}
 
@@ -57,37 +59,44 @@ func do_main(config *config_t) ([]byte, error) {
 	case "jq":
 		buffer, err = json.Marshal(mid_result)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("convert mid_data err: %v\n", err))
+			err = errors.New(fmt.Sprintf("convert mid_data err: %v\n", err))
+			return
 		}
 		buffer, err = jq(config.query, buffer)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("run jq err: %v\n", err))
+			err = errors.New(fmt.Sprintf("run jq err: %v\n", err))
+			return
 		}
 	case "libjq":
 		seq, seq_err := libjq.Apply(config.query, mid_result)
 		if seq_err != nil {
-			return nil, errors.New(fmt.Sprintf("apply jq err: %v\n", err))
+			err = errors.New(fmt.Sprintf("apply jq err: %v\n", err))
+			return
 		}
 		//fmt.Printf("return %v\n", string(seq[0]))
 		buffer = seq[0]
 		//fmt.Printf("hello %s\n", string(buffer))
 
 	default:
-		return nil, errors.New(fmt.Sprintf("no engine %s\n", config.engine))
+		err = errors.New(fmt.Sprintf("no engine %s\n", config.engine))
+		return
 	}
 
 	//fmt.Println(string(data))
 
 	if config.to_type == "yaml" {
-		if j2, err := yaml.JSONToYAML(buffer); err != nil {
-			return nil, errors.New(fmt.Sprintf("convert mid data to yaml err: %v\n", err))
+		if output, err = yaml.JSONToYAML(buffer); err != nil {
+			err = errors.New(fmt.Sprintf("convert mid data to yaml err: %v\n", err))
+			return
 		} else {
-			return j2, nil
+			return
 		}
 	} else if config.to_type == "json" {
-		return buffer, nil
+		output = buffer
+		return
 	} else {
-		return nil, errors.New(fmt.Sprintf("output type is not support yet: %v\n", config.from_type))
+		err = errors.New(fmt.Sprintf("output type is not support yet: %v\n", config.from_type))
+		return
 	}
 
 }
