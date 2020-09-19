@@ -1,9 +1,9 @@
+a:
+  b:
+    c: 世界
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
     comment: 你好
-    deployment.kubernetes.io/revision: '2'
-a:
-  b:
-    c: 世界
+    deployment.kubernetes.io/revision: "2"
