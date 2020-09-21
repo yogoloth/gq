@@ -6,6 +6,11 @@ import (
 	libjq "github.com/threatgrid/jq-go"
 )
 
+type LibjqEngine struct {
+	query string
+	input *map[string]interface{}
+}
+
 func (e LibjqEngine) set_input(input *map[string]interface{}) {
 	e.input = input
 }

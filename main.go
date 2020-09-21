@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -22,30 +21,6 @@ type config_t struct {
 type IEngine interface {
 	set_input(intput *map[string]interface{})
 	run() ([]byte, error)
-}
-
-type JqEngine struct {
-	query string
-	input *map[string]interface{}
-}
-
-type LibjqEngine struct {
-	query string
-	input *map[string]interface{}
-}
-
-func (e JqEngine) set_input(input *map[string]interface{}) {
-	e.input = input
-}
-
-func (e JqEngine) run() (buffer []byte, err error) {
-	buffer, err = json.Marshal(e.input)
-	if err != nil {
-		err = errors.New(fmt.Sprintf("convert mid_data err: %v\n", err))
-		return
-	}
-	buffer, err = jq(e.query, buffer)
-	return
 }
 
 func do_main(config *config_t) (output []byte, err error) {
