@@ -23,6 +23,7 @@ func parse_args() *config_t {
 	}
 	flag.BoolVar(&config.verbose, "v", false, "is verbose?")
 	flag.BoolVar(&is_yaml, "y", false, "output type is yaml")
+
 	flag.StringVar(&config.engine, "engine", "libjq", "call external jq or internal libjq")
 	flag.Parse()
 

@@ -8,7 +8,6 @@ import (
 	"os"
 
 	"github.com/ghodss/yaml"
-	libjq "github.com/threatgrid/jq-go"
 )
 
 type config_t struct {
@@ -18,6 +17,35 @@ type config_t struct {
 	to_type   string
 	query     string
 	filepath  string
+}
+
+type IEngine interface {
+	set_input(intput *map[string]interface{})
+	run() ([]byte, error)
+}
+
+type JqEngine struct {
+	query string
+	input *map[string]interface{}
+}
+
+type LibjqEngine struct {
+	query string
+	input *map[string]interface{}
+}
+
+func (e JqEngine) set_input(input *map[string]interface{}) {
+	e.input = input
+}
+
+func (e JqEngine) run() (buffer []byte, err error) {
+	buffer, err = json.Marshal(e.input)
+	if err != nil {
+		err = errors.New(fmt.Sprintf("convert mid_data err: %v\n", err))
+		return
+	}
+	buffer, err = jq(e.query, buffer)
+	return
 }
 
 func do_main(config *config_t) (output []byte, err error) {
@@ -55,34 +83,21 @@ func do_main(config *config_t) (output []byte, err error) {
 
 	}
 
+	var engine IEngine
 	switch config.engine {
 	case "jq":
-		buffer, err = json.Marshal(mid_result)
-		if err != nil {
-			err = errors.New(fmt.Sprintf("convert mid_data err: %v\n", err))
-			return
-		}
-		buffer, err = jq(config.query, buffer)
-		if err != nil {
-			err = errors.New(fmt.Sprintf("run jq err: %v\n", err))
-			return
-		}
+		engine = JqEngine{config.query, &mid_result}
 	case "libjq":
-		seq, seq_err := libjq.Apply(config.query, mid_result)
-		if seq_err != nil {
-			err = errors.New(fmt.Sprintf("apply jq err: %v\n", err))
-			return
-		}
-		//fmt.Printf("return %v\n", string(seq[0]))
-		buffer = seq[0]
-		//fmt.Printf("hello %s\n", string(buffer))
-
+		engine = LibjqEngine{config.query, &mid_result}
 	default:
-		err = errors.New(fmt.Sprintf("no engine %s\n", config.engine))
+		fmt.Fprintf(os.Stderr, "jq engine config error: %v\n\n", os.Args)
+	}
+	//engine.set_input(&mid_result)
+	buffer, err = engine.run()
+	if err != nil {
+		err = errors.New(fmt.Sprintf("run jq err: %v\n", err))
 		return
 	}
-
-	//fmt.Println(string(data))
 
 	if config.to_type == "yaml" {
 		if output, err = yaml.JSONToYAML(buffer); err != nil {
