@@ -18,11 +18,6 @@ type config_t struct {
 	filepath  string
 }
 
-type IEngine interface {
-	set_input(intput *map[string]interface{})
-	run() ([]byte, error)
-}
-
 func do_main(config *config_t) (output []byte, err error) {
 	var buffer []byte
 	var input []byte
