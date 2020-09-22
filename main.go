@@ -21,6 +21,8 @@ type config_t struct {
 func do_main(config *config_t) (output []byte, err error) {
 	var buffer []byte
 	var input []byte
+	var engine IEngine
+	var factory EngineFactory
 	mid_result := make(map[string]interface{})
 
 	if config.verbose {
@@ -53,16 +55,12 @@ func do_main(config *config_t) (output []byte, err error) {
 
 	}
 
-	var engine IEngine
-	switch config.engine {
-	case "jq":
-		engine = JqEngine{config.query, &mid_result}
-	case "libjq":
-		engine = LibjqEngine{config.query, &mid_result}
-	default:
-		fmt.Fprintf(os.Stderr, "jq engine config error: %v\n\n", os.Args)
+	engine, err = factory.createEngine(config.engine, config.query, &mid_result)
+	if err != nil {
+		err = errors.New(fmt.Sprintf("create engine err: %v\n", err))
+		return
 	}
-	//engine.set_input(&mid_result)
+
 	buffer, err = engine.run()
 	if err != nil {
 		err = errors.New(fmt.Sprintf("run jq err: %v\n", err))
