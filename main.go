@@ -40,11 +40,6 @@ func do_main(config *config_t) (output []byte, err error) {
 	}
 
 	if config.from_type == "yaml" {
-		//buffer, err = yaml.YAMLToJSON(input)
-		//if err != nil {
-		//	fmt.Printf("err: %v\n", err)
-		//	return
-		//}
 		if err = yaml.Unmarshal(input, &mid_result); err != nil {
 			err = errors.New(fmt.Sprintf("decode input yaml - %v\n", err))
 			return
