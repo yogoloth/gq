@@ -3,7 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
-	libjq "github.com/threatgrid/jq-go"
+	libjq "github.com/snowcrystall/jq-go"
+	//libjq "github.com/threatgrid/jq-go"
 )
 
 type LibjqEngine struct {

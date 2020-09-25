@@ -1,6 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
+logging:
+  level:
+    com.timanetworks: info
 metadata:
   annotations:
     comment: 你好
     deployment.kubernetes.io/revision: "2"
+spring:
+  application:
+    name: mosc-payment-h5-server
+  cloud:
+    config:
+      discovery:
+        enabled: false
+        serviceId: config-server
+  profiles: prod

@@ -50,6 +50,10 @@ func do_main(config *config_t) (output []byte, err error) {
 
 	}
 
+	if config.verbose == true {
+		fmt.Printf("input data is :\n%v\n", mid_result)
+	}
+
 	engine, err = factory.createEngine(config.engine, config.query, &mid_result)
 	if err != nil {
 		err = errors.New(fmt.Sprintf("create engine err: %v\n", err))

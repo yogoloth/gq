@@ -21,3 +21,7 @@ fresh:
 	cp ./modules/jq/modules/oniguruma/src/.libs/libonig.lai modules/lib/
 	cp ./modules/jq/modules/oniguruma/src/oniguruma.h modules/include/
 
+test:
+	go test
+
+.PHONY: test

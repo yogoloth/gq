@@ -1,5 +1,7 @@
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
+github.com/snowcrystall/jq-go v0.0.0-20170531024123-f9de311dda0d h1:RmEG5XduwRI5zXxtbVNTTtoHpcv+gi5+3U1PcZyodPE=
+github.com/snowcrystall/jq-go v0.0.0-20170531024123-f9de311dda0d/go.mod h1:8K8E1k+9n6pqMOh+sCRU21WeNjd4ChCSQCWGH1r6QaE=
 github.com/threatgrid/jq-go v0.0.0-20140326011412-3e60d678d7d9 h1:2R9kgEsfiJdQcfnth3mezlDgx//QFr9UsjLmCmfGIU4=
 github.com/threatgrid/jq-go v0.0.0-20140326011412-3e60d678d7d9/go.mod h1:oTmgwl5NK8f7Z6yPGKYzXL3AAvyc/Csf1ufK3dmv9ZU=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
