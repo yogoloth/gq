@@ -23,7 +23,6 @@ func (e *LibjqEngine) run() (buffer []byte, err error) {
 		err = errors.New(fmt.Sprintf("apply jq err: %v\n", seq_err))
 		return
 	}
-	//buffer = seq_buffer[0]
 
 	tmp := bytes.Buffer{}
 	for _, b := range seq_buffer {
