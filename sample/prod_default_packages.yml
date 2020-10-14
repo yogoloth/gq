@@ -1,0 +1,779 @@
+springboots:
+  - mxxx_eureka-server:
+    name: eureka-server
+    servers: 
+      - mxxxsp1.pro
+      - mxxxsp2.pro
+    dirs:
+      - /var/log/txxx/eureka-server
+      - /opt/txxx/timaapps/mxxx/eureka-server
+    stop: /opt/txxx/timaapps/mxxx/eureka-server/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/eureka-server/run.sh start
+  - mxxx_config-server:
+    name: config-server
+    servers: 
+      - mxxxsp1.pro
+      - mxxxsp2.pro
+    dirs:
+      - /var/log/txxx/config-server
+      - /opt/txxx/timaapps/mxxx/config-server
+      - /opt/txxx/timaapps/mxxx/config-repo
+    stop: /opt/txxx/timaapps/mxxx/config-server/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/config-server/run.sh start
+  - mxxx_api-gateway:
+    name: api-gateway
+    servers: 
+      - mxxxsp3.pro
+      - mxxxsp4.pro
+      - mxxxsp64.pro
+      - mxxxsp65.pro
+    dirs:
+      - /var/log/txxx/api-gateway
+      - /opt/txxx/timaapps/mxxx/api-gateway
+      - /opt/txxxapps/api-gateway
+    stop: /opt/txxx/timaapps/mxxx/api-gateway/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/api-gateway/run.sh start
+  - mos-mweb:
+    name: mos-mweb
+    servers: 
+      - mxxxsp5.pro
+      - mxxxsp6.pro
+    dirs:
+      - /txxxfawvw/logs/mos-mweb
+      - /opt/txxx/timaapps/mxxx/mos-mweb
+      - /txxxfawvw/config/mos-mweb
+    stop: /opt/txxx/timaapps/mxxx/mos-mweb/node_start.sh stop
+    start: /opt/txxx/timaapps/mxxx/mos-mweb/node_start.sh start
+  - mxxx-operation-management-web:
+    name: mxxx-operation-management-web
+    servers: 
+      - mxxxsp5.pro
+      - mxxxsp6.pro
+    dirs:
+      - /txxxfawvw/logs/mxxx-operation-management-web
+      - /opt/txxx/timaapps/mxxx/mxxx-operation-management-web
+      - /txxxfawvw/config/mxxx-operation-management-web
+    stop: /opt/txxx/timaapps/mxxx/mxxx-operation-management-web/node_start.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-operation-management-web/node_start.sh start
+
+  - mxxx-batch-auth-time-task:
+    name: mxxx-batch-auth-time-task
+    servers: 
+      - mxxxsp33.pro
+    dirs:
+      - /var/log/txxx/mxxx-batch-auth-time-task
+      - /opt/txxx/timaapps/mxxx/mxxx-batch-auth-time-task
+      - /opt/txxxapps/mxxx-batch-auth-time-task
+    stop: /opt/txxx/timaapps/mxxx/mxxx-batch-auth-time-task/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-batch-auth-time-task/run.sh start
+
+
+  - mxxx-show-vehicle-task:
+    name: mxxx-show-vehicle-task
+    servers: 
+      - mxxxsp34.pro
+    dirs:
+      - /var/log/txxx/mxxx-show-vehicle-task
+      - /opt/txxx/timaapps/mxxx/mxxx-show-vehicle-task
+      - /opt/txxxapps/mxxx-show-vehicle-task
+    stop: /opt/txxx/timaapps/mxxx/mxxx-show-vehicle-task/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-show-vehicle-task/run.sh start
+
+  - mxxx-mobiledata:
+    name: mxxx-mobiledata
+    servers: 
+      - mxxxsp9.pro
+      - mxxxsp10.pro
+    dirs:
+      - /var/log/txxx/mxxx-mobiledata
+      - /opt/txxx/timaapps/mxxx/mxxx-mobiledata
+      - /opt/txxxapps/mxxx-mobiledata
+    stop: /opt/txxx/timaapps/mxxx/mxxx-mobiledata/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-mobiledata/run.sh start
+  - mxxx-navi-api:
+    name: mxxx-navi-api
+    servers: 
+      - mxxxsp9.pro
+      - mxxxsp10.pro
+      - mxxxsp66.pro
+      - mxxxsp67.pro
+    dirs:
+      - /var/log/txxx/mxxx-navi-api
+      - /opt/txxx/timaapps/mxxx/mxxx-navi
+      - /opt/txxxapps/mxxx-navi
+    stop: /opt/txxx/timaapps/mxxx/mxxx-navi/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-navi/run.sh start
+  - mxxx-payment-h5-server:
+    name: mxxx-payment-h5-server
+    servers: 
+      - mxxxsp11.pro
+      - mxxxsp12.pro
+    dirs:
+      - /var/log/txxx/mxxx-payment-h5-server
+      - /opt/txxx/timaapps/mxxx/mxxx-payment-h5-server
+      - /opt/txxxapps/mxxx-payment-h5-server
+    stop: /opt/txxx/timaapps/mxxx/mxxx-payment-h5-server/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-payment-h5-server/run.sh start
+  - mxxx-parking:
+    name: mxxx-parking
+    servers:
+      - mxxxsp11.pro
+      - mxxxsp12.pro
+    dirs:
+      - /var/log/txxx/mxxx-parking
+      - /opt/txxx/timaapps/mxxx/mxxx-parking
+      - /opt/txxxapps/mxxx-parking
+    stop: /opt/txxx/timaapps/mxxx/mxxx-parking/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-parking/run.sh start
+  - mxxx-vehicle-status-upload:
+    name: mxxx-vehicle-status-upload
+    servers: 
+      #- mxxxsp13.pro
+      #- mxxxsp14.pro
+      - mxxxsp57.pro
+    dirs:
+      - /var/log/txxx/mxxx-vehicle-status-upload
+      - /opt/txxx/timaapps/mxxx-vehicle-status-upload
+      - /opt/txxxapps/mxxx-vehicle-status-upload
+      - /txxxfawvw/logs/mxxx-vehicle-status-upload
+      - /opt/txxx/timaapps/mxxx/mxxx-vehicle-status-upload
+    stop: /opt/txxx/timaapps/mxxx/mxxx-vehicle-status-upload/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-vehicle-status-upload/run.sh start
+  - mxxx-startup-broadcast:
+    name: mxxx-startup-broadcast
+    servers: 
+      - mxxxsp13.pro
+      - mxxxsp14.pro
+    dirs:
+      - /var/log/txxx/mxxx-startup-broadcast
+      - /opt/txxx/timaapps/mxxx/mxxx-startup-broadcast
+      - /opt/txxxapps/mxxx-startup-broadcast
+    stop: /opt/txxx/timaapps/mxxx/mxxx-startup-broadcast/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-startup-broadcast/run.sh start
+  - mxxx-frontend-notification-service:
+    name: mxxx-frontend-notification-service
+    servers: 
+      - mxxxsp15.pro
+      - mxxxsp16.pro
+    dirs:
+      - /var/log/txxx/mxxx-frontend-notification-service
+      - /opt/txxx/timaapps/mxxx/mxxx-frontend-notification-service
+      - /opt/txxxapps/mxxx-frontend-notification-service
+      - /opt/txxx/timaapps/mxxx/mxxx-frontend-notification-service/FAWVW_SYS_CERT
+    stop: /opt/txxx/timaapps/mxxx/mxxx-frontend-notification-service/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-frontend-notification-service/run.sh start
+  - mxxx-mbb:
+    name: mxxx-mbb
+    servers: 
+      - mxxxsp15.pro
+      - mxxxsp16.pro
+    dirs:
+      - /var/log/txxx/mxxx-mbb
+      - /opt/txxx/timaapps/mxxx/mxxx-mbb
+      - /opt/txxxapps/mxxx-mbb
+      - /opt/txxxapps/mxxx-mbb-service
+      - /opt/txxx/timaapps/mxxx/mxxx-mbb/fawvw_sys_cert
+    stop: /opt/txxx/timaapps/mxxx/mxxx-mbb/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-mbb/run.sh start
+  - mxxx-music-api:
+    name: mxxx-music-api
+    servers: 
+      #- mxxxsp17.pro
+      #- mxxxsp18.pro
+      - mxxxsp68.pro
+      - mxxxsp69.pro
+      - mxxxsp70.pro
+      - mxxxsp71.pro
+    dirs:
+      - /var/log/txxx/mxxx-music-api
+      - /opt/txxx/timaapps/mxxx/mxxx-music-api
+      - /opt/txxxapps/mxxx-music-api
+      - /opt/txxx/timaapps/mxxx-music-api
+    stop: /opt/txxx/timaapps/mxxx/mxxx-music-api/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-music-api/run.sh start
+  - mxxx-weather:
+    name: mxxx-weather
+    servers: 
+      #- mxxxsp17.pro
+      #- mxxxsp18.pro
+      - mxxxsp72.pro
+      - mxxxsp73.pro
+      - mxxxsp74.pro
+      - mxxxsp75.pro
+    dirs:
+      - /var/log/txxx/mxxx-weather
+      - /opt/txxx/timaapps/mxxx/mxxx-weather
+      - /opt/txxxapps/mxxx-weather
+    stop: /opt/txxx/timaapps/mxxx/mxxx-weather/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-weather/run.sh start
+  - mxxx-smart-home:
+    name: mxxx-smart-home
+    servers: 
+      - mxxxsp19.pro
+      - mxxxsp20.pro
+    dirs:
+      - /var/log/txxx/mxxx-smart-home
+      - /opt/txxx/timaapps/mxxx/mxxx-smart-home
+      - /opt/txxxapps/mxxx-smart-home
+    stop: /opt/txxx/timaapps/mxxx/mxxx-smart-home/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-smart-home/run.sh start
+  - mxxx-traffic-violation:
+    name: mxxx-traffic-violation
+    servers: 
+      - mxxxsp19.pro
+      - mxxxsp20.pro
+    dirs:
+      - /var/log/txxx/mxxx-traffic-violation
+      - /opt/txxx/timaapps/mxxx/mxxx-traffic-violation
+      - /opt/txxxapps/mxxx-traffic-violation
+    stop: /opt/txxx/timaapps/mxxx/mxxx-traffic-violation/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-traffic-violation/run.sh start
+  - mxxx-group-driving:
+    name: mxxx-group-driving
+    servers: 
+      - mxxxsp21.pro
+      - mxxxsp22.pro
+    dirs:
+      - /var/log/txxx/mxxx-group-driving
+      - /opt/txxx/timaapps/mxxx/mxxx-group-driving
+      - /opt/txxxapps/mxxx-group-driving
+    stop: /opt/txxx/timaapps/mxxx/mxxx-group-driving/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-group-driving/run.sh start
+  - mxxx-tencent-mycar:
+    name: mxxx-tencent-mycar
+    servers: 
+      - mxxxsp21.pro
+      - mxxxsp22.pro
+    dirs:
+      - /var/log/txxx/mxxx-tencent-mycar
+      - /opt/txxx/timaapps/mxxx/mxxx-tencent-mycar
+      - /opt/txxxapps/mxxx-tencent-mycar
+    stop: /opt/txxx/timaapps/mxxx/mxxx-tencent-mycar/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-tencent-mycar/run.sh start
+  - mxxx-dealer-maintenance:
+    name: mxxx-dealer-maintenance
+    servers: 
+      - mxxxsp23.pro
+      - mxxxsp24.pro
+    dirs:
+      - /var/log/txxx/mxxx-dealer-maintenance
+      - /opt/txxx/timaapps/mxxx/mxxx-dealer-maintenance
+      - /opt/txxxapps/mxxx-dealer-maintenance
+    stop: /opt/txxx/timaapps/mxxx/mxxx-dealer-maintenance/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-dealer-maintenance/run.sh start
+  - mxxx-user:
+    name: mxxx-user
+    servers: 
+      - mxxxsp23.pro
+      - mxxxsp24.pro
+    dirs:
+      - /var/log/txxx/mxxx-user
+      - /opt/txxx/timaapps/mxxx/mxxx-user
+      - /opt/txxxapps/mxxx-user
+    stop: /opt/txxx/timaapps/mxxx/mxxx-user/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-user/run.sh start
+  - mxxx-hubase:
+    name: mxxx-hubase
+    servers: 
+      - mxxxsp25.pro
+      - mxxxsp26.pro
+    dirs:
+      - /var/log/txxx/mxxx-hubase
+      - /opt/txxx/timaapps/mxxx/mxxx-hubase
+      - /opt/txxxapps/mxxx-hubase
+      - /opt/txxxapps/mxxx/mxxx-huupload
+      - /opt/txxxapps/mxxx-huupload
+      - /opt/txxx/timaapps/mxxx/mxxx-huupload
+    stop: /opt/txxx/timaapps/mxxx/mxxx-huupload/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-huupload/run.sh start
+  - mxxx-appstore-api:
+    name: mxxx-appstore-api
+    servers: 
+      - mxxxsp25.pro
+      - mxxxsp26.pro
+    dirs:
+      - /var/log/txxx/mxxx-appstore-api
+      - /opt/txxx/timaapps/mxxx/mxxx-appstore-api
+      - /opt/txxxapps/mxxx-appstore-api
+    stop: /opt/txxx/timaapps/mxxx/mxxx-appstore-api/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-appstore-api/run.sh start
+  - mxxx-security-disclaimer:
+    name: mxxx-security-disclaimer
+    servers: 
+      - mxxxsp27.pro
+      - mxxxsp28.pro
+    dirs:
+      - /var/log/txxx/mxxx-security-disclaimer
+      - /opt/txxx/timaapps/mxxx/mxxx-security-disclaimer
+      - /opt/txxxapps/mxxx-security-disclaimer
+    stop: /opt/txxx/timaapps/mxxx/mxxx-security-disclaimer/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-security-disclaimer/run.sh start
+  - mxxx-retargeting-manage:
+    name: mxxx-retargeting-manage
+    servers: 
+      - mxxxsp27.pro
+      - mxxxsp28.pro
+    dirs:
+      - /var/log/txxx/mxxx-retargeting-manage
+      - /opt/txxx/timaapps/mxxx/mxxx-retargeting-manage
+      - /opt/txxxapps/mxxx-retargeting-manage
+    stop: /opt/txxx/timaapps/mxxx/mxxx-retargeting-manage/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-retargeting-manage/run.sh start
+  - mxxx-last-mile-nav:
+    name: mxxx-last-mile-nav
+    servers: 
+      - mxxxsp27.pro
+      - mxxxsp28.pro
+    dirs:
+      - /var/log/txxx/mxxx-last-mile-nav
+      - /opt/txxx/timaapps/mxxx/mxxx-last-mile-nav
+      - /opt/txxxapps/mxxx-last-mile-nav
+    stop: /opt/txxx/timaapps/mxxx/mxxx-last-mile-nav/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-last-mile-nav/run.sh start
+  - mxxx-mqtt-center:
+    name: mxxx-mqtt-center
+    servers: 
+      - mxxxsp29.pro
+      - mxxxsp30.pro
+    dirs:
+      - /var/log/txxx/mxxx-mqtt-center
+      - /opt/txxx/timaapps/mxxx/mxxx-mqtt-center
+      - /opt/txxxapps/mxxx-mqtt-center
+    stop: /opt/txxx/timaapps/mxxx/mxxx-mqtt-center/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-mqtt-center/run.sh start
+  - mxxx-datacollection:
+    name: mxxx-datacollection
+    servers: 
+      - mxxxsp29.pro
+      - mxxxsp30.pro
+    dirs:
+      - /var/log/txxx/mxxx-datacollection
+      - /opt/txxx/timaapps/mxxx/mxxx-datacollection
+      - /opt/txxxapps/mxxx-datacollection
+    stop: /opt/txxx/timaapps/mxxx/mxxx-datacollection/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-datacollection/run.sh start
+  - mxxx-poi-favorites:
+    name: mxxx-poi-favorites
+    servers: 
+      - mxxxsp31.pro
+      - mxxxsp32.pro
+    dirs:
+      - /var/log/txxx/mxxx-poi-favorites
+      - /opt/txxx/timaapps/mxxx/mxxx-poi-favorites
+      - /opt/txxxapps/mxxx-poi-favorites
+    stop: /opt/txxx/timaapps/mxxx/mxxx-poi-favorites/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-poi-favorites/run.sh start
+  - mxxx-calendar:
+    name: mxxx-calendar
+    servers: 
+      - mxxxsp31.pro
+      - mxxxsp32.pro
+    dirs:
+      - /var/log/txxx/mxxx-calendar
+      - /opt/txxx/timaapps/mxxx/mxxx-calendar
+      - /opt/txxxapps/mxxx-calendar
+    stop: /opt/txxx/timaapps/mxxx/mxxx-calendar/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-calendar/run.sh start
+  - mxxx-timed-task:
+    name: mxxx-timed-task
+    servers: 
+      - mxxxsp33.pro
+    dirs:
+      - /var/log/txxx/mxxx-timed-task
+      - /opt/txxx/timaapps/mxxx/mxxx-timed-task
+      - /opt/txxxapps/mxxx-timed-task
+    stop: /opt/txxx/timaapps/mxxx/mxxx-timed-task/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-timed-task/run.sh start
+  - mxxx-vehicle-annual-inspect:
+    name: mxxx-vehicle-annual-inspect
+    servers: 
+      - mxxxsp33.pro
+    dirs:
+      - /var/log/txxx/mxxx-vehicle-annual-inspect
+      - /opt/txxx/timaapps/mxxx/mxxx-vehicle-annual-inspect
+      - /opt/txxxapps/mxxx-vehicle-annual-inspect
+    stop: /opt/txxx/timaapps/mxxx/mxxx-vehicle-annual-inspect/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-vehicle-annual-inspect/run.sh start
+  - mxxx-payment-h5-server-job:
+    name: mxxx-payment-h5-server-job
+    servers: 
+      - mxxxsp34.pro
+    dirs:
+      - /var/log/txxx/mxxx-payment-h5-server-job
+      - /opt/txxx/timaapps/mxxx/mxxx-payment-h5-server-job
+      - /opt/txxxapps/mxxx-payment-h5-server-job
+    stop: /opt/txxx/timaapps/mxxx/mxxx-payment-h5-server-job/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-payment-h5-server-job/run.sh start
+  - mxxx-veh-authorization:
+    name: mxxx-veh-authorization
+    servers: 
+      - mxxxsp34.pro
+    dirs:
+      - /var/log/txxx/mxxx-veh-authorization
+      - /opt/txxx/timaapps/mxxx/mxxx-veh-authorization
+      - /opt/txxxapps/mxxx-veh-authorization
+    stop: /opt/txxx/timaapps/mxxx/mxxx-veh-authorization/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-veh-authorization/run.sh start
+  - mxxx-personal-config:
+    name: mxxx-personal-config
+    servers: 
+      - mxxxsp7.pro
+      - mxxxsp8.pro
+    dirs:
+      - /var/log/txxx/mxxx-personal-config
+      - /opt/txxx/timaapps/mxxx/mxxx-personal-config
+      - /opt/txxxapps/mxxx-personal-config
+      - /var/log/mxxx-personal-data-upload
+      - /opt/txxxapps/mxxx-personal-data-upload
+      - /opt/txxx/timaapps/mxxx/mxxx-personal-data-upload
+    stop: /opt/txxx/timaapps/mxxx/mxxx-personal-data-upload/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-personal-data-upload/run.sh start
+  - mxxx-radio-api:
+    name: mxxx-radio-api
+    servers: 
+      - mxxxsp7.pro
+      - mxxxsp8.pro
+    dirs:
+      - /var/log/txxx/mxxx-radio-api
+      - /opt/txxx/timaapps/mxxx/mxxx-radio-api
+      - /opt/txxxapps/mxxx-radio-api
+    stop: /opt/txxx/timaapps/mxxx/mxxx-radio-api/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-radio-api/run.sh start
+    
+  - mxxx-cert:
+    name: mxxx-cert
+    servers: 
+      - mxxxsp35.pro
+      - mxxxsp36.pro
+    dirs:
+      - /var/log/txxx/mxxx-cert
+      - /opt/txxx/timaapps/mxxx/mxxx-cert
+    stop: /opt/txxx/timaapps/mxxx/mxxx-cert/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-cert/run.sh start
+
+  - mxxx-vehicle-detection:
+    name: mxxx-vehicle-detection
+    servers: 
+      - mxxxsp39.pro
+      - mxxxsp40.pro
+    dirs:
+      - /var/log/txxx/mxxx-vehicle-detection
+      - /opt/txxx/timaapps/veh-dectection
+    stop: /opt/txxx/timaapps/veh-dectection/run.sh stop
+    start: /opt/txxx/timaapps/veh-dectection/run.sh start
+
+
+  - mxxx-vehicle-detection-portal:
+    name: mxxx-vehicle-detection-portal
+    servers: 
+      - mxxxsp39.pro
+      - mxxxsp40.pro
+    dirs:
+      - /txxxfawvw/config/mxxx-vehicle-detection
+      - /txxxfawvw/logs/mxxx-vehicle-detection
+      - /opt/txxx/timaapps/mxxx/mxxx-vehicle-detection-portal
+      - /txxxfawvw/config/mxxx-vehicle-detection-portal
+    stop: /opt/txxx/timaapps/mxxx/mxxx-vehicle-detection-portal/node_start.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-vehicle-detection-portal/node_start.sh start
+
+  - mxxx-manage-portal:
+    name: mxxx-manage-portal
+    servers: 
+      - mxxx-opernodejs1.pro
+      - mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/mxxx-manage-portal
+      - /opt/txxx/timaapps/mxxx/mxxx-manage-portal
+    #stop: /opt/txxx/timaapps/mxxx/mxxx-manage-portal/node_start.sh stop
+    #start: /opt/txxx/timaapps/mxxx/mxxx-manage-portal/node_start.sh start
+
+    
+  - mxxx-appstore-manage:
+    name: mxxx-appstore-manage
+    servers: 
+      - mxxx-opernodejs1.pro
+      - mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/mxxx-appstore-manage
+      - /opt/txxx/timaapps/mxxx/mxxx-appstore-manage
+    stop: /opt/txxx/timaapps/mxxx/mxxx-appstore-manage/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-appstore-manage/run.sh start
+
+
+  - fis-data-sync:
+    name: fis-data-sync
+    server: 10.224.61.103
+    servers: 
+      - mxxxsp39.pro
+    dirs:
+      - /var/log/txxx/fis-data-sync
+      - /opt/txxx/timaapps/mxxx/fis-data-sync
+      - /opt/txxxapps/fis-data-sync
+    stop: /opt/txxx/timaapps/mxxx/fis-data-sync/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/fis-data-sync/run.sh start
+
+  - mxxx-operation-manager:
+    name: mxxx-operation-manager
+    servers: 
+      - mxxx-opernodejs1.pro
+      - mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/mxxx-operation-manager
+      - /opt/txxx/timaapps/mxxx/mxxx-operation-manager
+    start: /opt/txxx/timaapps/mxxx/mxxx-operation-manager/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-operation-manager/run.sh stop
+
+    
+  - mxxx-canal-sync:
+    name: mxxx-canal-sync
+    servers: 
+      - mxxx-opernodejs1.pro
+      #- mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/mxxx-canal-sync
+      - /opt/txxx/timaapps/mxxx/mxxx-canal-sync
+    start: /opt/txxx/timaapps/mxxx/mxxx-canal-sync/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-canal-sync/run.sh stop
+          
+  - mxxx-canal-sync-dms:
+    name: mxxx-canal-sync-dms
+    servers: 
+      #- mxxx-opernodejs1.pro
+      - mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/mxxx-canal-sync-dms
+      - /opt/txxx/timaapps/mxxx/mxxx-canal-sync-dms
+    start: /opt/txxx/timaapps/mxxx/mxxx-canal-sync-dms/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-canal-sync-dms/run.sh stop
+
+  - canal:
+    name: canal
+    servers: 
+      - mxxx-opernodejs1.pro
+      #- mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/canal
+      - /opt/txxx/timaapps/mxxx/canal-prod
+      - /opt/txxx/timaapps/mxxx/canal-prod/bin
+      - /opt/txxx/timaapps/mxxx/canal-prod/conf/prod
+      - /opt/txxx/timaapps/mxxx/canal-prod/conf/example
+    start: /opt/txxx/timaapps/mxxx/canal-prod/bin/startup.sh
+    stop: /opt/txxx/timaapps/mxxx/canal-prod/bin/stop.sh
+
+  - canal2:
+    name: canal2
+    servers: 
+      #- mxxx-opernodejs1.pro
+      - mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/canal
+      - /opt/txxx/timaapps/mxxx/canal-prod2
+      - /opt/txxx/timaapps/mxxx/canal-prod2/bin
+      - /opt/txxx/timaapps/mxxx/canal-prod2/conf/prod
+      - /opt/txxx/timaapps/mxxx/canal-prod2/conf/example
+    start: /opt/txxx/timaapps/mxxx/canal-prod2/bin/startup.sh
+    stop: /opt/txxx/timaapps/mxxx/canal-prod2/bin/stop.sh
+
+  - mxxx-showcar-manage:
+    name: mxxx-showcar-manage
+    servers: 
+      - mxxx-opersp3.pro
+      - mxxx-opersp4.pro
+    dirs:
+      - /var/log/txxx/mxxx-showcar-manage
+      - /opt/txxx/timaapps/mxxx/mxxx-showcar-manage
+    start: /opt/txxx/timaapps/mxxx/mxxx-showcar-manage/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-showcar-manage/run.sh stop
+   
+  - mxxx-mnoreconciliation-manage:
+    name: mxxx-mnoreconciliation-manage
+    servers: 
+      - mxxx-opersp3.pro
+      - mxxx-opersp4.pro
+    dirs:
+      - /var/log/txxx/mxxx-mnoreconciliation-manage
+      - /opt/txxx/timaapps/mxxx/mxxx-mnoreconciliation-manage
+    start: /opt/txxx/timaapps/mxxx/mxxx-mnoreconciliation-manage/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-mnoreconciliation-manage/run.sh stop
+
+  - mxxx-home-automation:
+    name: mxxx-home-automation
+    servers: 
+      - mxxxsp54.pro
+      - mxxxsp55.pro
+    dirs:
+      - /var/log/txxx/mxxx-home-automation
+      - /opt/txxx/timaapps/mxxx/mxxx-home-automation
+      - /opt/txxxapps/mxxx-home-automation
+    start: /opt/txxx/timaapps/mxxx/mxxx-home-automation/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-home-automation/run.sh stop
+
+  - mxxx-film:
+    name: mxxx-film
+    servers: 
+      - mxxxsp44.pro
+      - mxxxsp45.pro
+    dirs:
+      - /var/log/txxx/mxxx-film
+      - /opt/txxx/timaapps/mxxx/mxxx-film
+      - /opt/txxxapps/mxxx-film
+    start: /opt/txxx/timaapps/mxxx/mxxx-film/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-film/run.sh stop
+
+  - mxxx-cate:
+    name: mxxx-cate
+    servers: 
+      - mxxxsp44.pro
+      - mxxxsp45.pro
+    dirs:
+      - /var/log/txxx/mxxx-cate
+      - /opt/txxx/timaapps/mxxx/mxxx-cate
+      - /opt/txxxapps/mxxx-cate
+    start: /opt/txxx/timaapps/mxxx/mxxx-cate/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-cate/run.sh stop
+
+  - mxxx-hotel:
+    name: mxxx-hotel
+    servers: 
+      - mxxxsp46.pro
+      - mxxxsp47.pro
+    dirs:
+      - /var/log/txxx/mxxx-hotel
+      - /opt/txxx/timaapps/mxxx/mxxx-hotel
+      - /opt/txxxapps/mxxx-hotel
+    start: /opt/txxx/timaapps/mxxx/mxxx-hotel/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-hotel/run.sh stop
+
+  - mxxx-flight:
+    name: mxxx-flight
+    servers: 
+      - mxxxsp46.pro
+      - mxxxsp47.pro
+    dirs:
+      - /var/log/txxx/mxxx-flight
+      - /opt/txxx/timaapps/mxxx/mxxx-flight
+      - /opt/txxxapps/mxxx-flight
+    start: /opt/txxx/timaapps/mxxx/mxxx-flight/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-flight/run.sh stop
+
+  - mxxx-news:
+    name: mxxx-news
+    servers: 
+      - mxxxsp44.pro
+      - mxxxsp45.pro
+    dirs:
+      - /var/log/txxx/mxxx-news
+      - /opt/txxx/timaapps/mxxx/mxxx-news
+      - /opt/txxxapps/mxxx-news
+    start: /opt/txxx/timaapps/mxxx/mxxx-news/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-news/run.sh stop
+
+  - mxxx-event-upload:
+    name: mxxx-event-upload
+    servers: 
+      - mxxxsp44.pro
+      - mxxxsp45.pro
+    dirs:
+      - /var/log/txxx/mxxx-event-upload
+      - /opt/txxx/timaapps/mxxx/mxxx-event-upload
+      - /opt/txxxapps/mxxx-event-upload
+    start: /opt/txxx/timaapps/mxxx/mxxx-event-upload/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-event-upload/run.sh stop
+
+  - mxxx-dsg-service:
+    name: mxxx-dsg-service
+    servers: 
+      - mxxxsp50.pro
+      - mxxxsp51.pro
+    dirs:
+      - /var/log/txxx/mxxx-dsg-service
+      - /opt/txxx/timaapps/mxxx/mxxx-dsg-service
+      - /opt/txxxapps/mxxx-dsg-service
+    start: /opt/txxx/timaapps/mxxx/mxxx-dsg-service/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-dsg-service/run.sh stop
+
+  - mxxx-e-call:
+    name: mxxx-e-call
+    servers: 
+      - mxxxsp50.pro
+      - mxxxsp51.pro
+    dirs:
+      - /var/log/txxx/mxxx-e-call
+      - /opt/txxx/timaapps/mxxx/mxxx-e-call
+      - /opt/txxxapps/mxxx-e-call
+    start: /opt/txxx/timaapps/mxxx/mxxx-e-call/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-e-call/run.sh stop
+
+  - 37w-mweb:
+    name: 37w-mweb
+    servers: 
+      - mxxxsp5.pro
+      - mxxxsp6.pro
+    dirs:
+      - /var/log/txxx/37w-mweb
+      - /opt/txxx/timaapps/mxxx/37w-mweb
+      - /opt/txxxapps/37w-mweb
+      - /txxxfawvw/config/37w-mweb
+    #start: /opt/txxx/timaapps/mxxx/37w-mweb/node_start.sh stop
+    #stop: /opt/txxx/timaapps/mxxx/37w-mweb/node_start.sh start
+
+
+  - 37w-calendar:
+    name: 37w-calendar
+    servers: 
+      - mxxx-opernodejs1.pro
+      - mxxx-opernodejs2.pro
+    dirs:
+      - /var/log/txxx/37w-calendar
+      - /opt/txxx/timaapps/mxxx/37w-calendar
+    start: /opt/txxx/timaapps/mxxx/37w-calendar/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/37w-calendar/run.sh stop
+
+  - mxxx-charging-service:
+    name: mxxx-charging-service
+    servers:
+      - mxxxsp54.pro
+      - mxxxsp55.pro
+    dirs:
+      - /var/log/txxx/mxxx-charging-service
+      - /opt/txxx/timaapps/mxxx/mxxx-charging-service
+      - /opt/txxxapps/mxxx-charging-service
+    start: /opt/txxx/timaapps/mxxx/mxxx-charging-service/run.sh start
+    stop: /opt/txxx/timaapps/mxxx/mxxx-charging-service/run.sh stop
+
+  - location:
+    name: location
+    servers:
+      - mxxxsp41.pro
+    dirs:
+      - /var/log/txxx/mxxx-location
+      - /opt/txxx/timaapps/mxxx/mxxx-location
+      - /opt/txxxapps/mxxx-location
+      - /var/log/txxx/location
+      - /opt/txxx/timaapps/mxxx-location
+    start: /opt/txxx/timaapps/mxxx-location/run.sh start
+    stop: /opt/txxx/timaapps/mxxx-location/run.sh stop
+
+  - mxxx-charging:
+    name: mxxx-charging
+    servers: 
+      - mxxxsp78.pro
+      - mxxxsp79.pro
+    dirs:
+      - /var/log/txxx/mxxx-charging
+      - /opt/txxx/timaapps/mxxx/mxxx-charging
+      - /opt/txxxapps/mxxx-charging
+    stop: /opt/txxx/timaapps/mxxx/mxxx-charging/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-charging/run.sh start
+
+  - mxxx-climatization:
+    name: mxxx-climatization
+    servers: 
+      - mxxxsp78.pro
+      - mxxxsp79.pro
+    dirs:
+      - /var/log/txxx/mxxx-climatization
+      - /opt/txxx/timaapps/mxxx/mxxx-climatization
+      - /opt/txxxapps/mxxx-climatization
+    stop: /opt/txxx/timaapps/mxxx/mxxx-climatization/run.sh stop
+    start: /opt/txxx/timaapps/mxxx/mxxx-climatization/run.sh start

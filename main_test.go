@@ -44,4 +44,10 @@ func TestMain(t *testing.T) {
 		config = config_t{false, "libjq", "yaml", "yaml", `.a.b.c="世界"`, request_file}
 		assertMainSuccess(t, &config, hope_file)
 	})
+	t.Run("find service deployed on servers from oper project", func(t *testing.T) {
+		hope_file := "sample/test_oper.yml"
+		request_file = "sample/prod_default_packages.yml"
+		config = config_t{false, "libjq", "yaml", "yaml", `.[][]|select(.servers[0]|capture(".*oper.*"))`, request_file}
+		assertMainSuccess(t, &config, hope_file)
+	})
 }

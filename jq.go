@@ -23,6 +23,7 @@ func (e *JqEngine) run() (buffer []byte, err error) {
 		err = errors.New(fmt.Sprintf("convert mid_data err: %v\n", err))
 		return
 	}
+	//fmt.Fprintf(os.Stderr, "input jq is: %s\n", string(buffer))
 	buffer, err = jq(e.query, buffer)
 	return
 }
