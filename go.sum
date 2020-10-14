@@ -4,6 +4,8 @@ github.com/snowcrystall/jq-go v0.0.0-20170531024123-f9de311dda0d h1:RmEG5XduwRI5
 github.com/snowcrystall/jq-go v0.0.0-20170531024123-f9de311dda0d/go.mod h1:8K8E1k+9n6pqMOh+sCRU21WeNjd4ChCSQCWGH1r6QaE=
 github.com/threatgrid/jq-go v0.0.0-20140326011412-3e60d678d7d9 h1:2R9kgEsfiJdQcfnth3mezlDgx//QFr9UsjLmCmfGIU4=
 github.com/threatgrid/jq-go v0.0.0-20140326011412-3e60d678d7d9/go.mod h1:oTmgwl5NK8f7Z6yPGKYzXL3AAvyc/Csf1ufK3dmv9ZU=
+github.com/yogoloth/yaml v1.0.0 h1:zwe0k7g8RSTFH5lRps3R4Y98dL8TYjYhgf7THCNlMMg=
+github.com/yogoloth/yaml v1.0.0/go.mod h1:3WAQKvZH4m7nXnSfJ8CN8Tn4l9arR9csMDFffVZIg4c=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.3.0 h1:clyUAQHOM3G0M3f5vQj7LuJrETvjVot3Z5el9nffUtU=
 gopkg.in/yaml.v2 v2.3.0/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

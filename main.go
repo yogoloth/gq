@@ -6,7 +6,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/ghodss/yaml"
+	//"github.com/ghodss/yaml"
+	"github.com/yogoloth/yaml"
 )
 
 type config_t struct {
