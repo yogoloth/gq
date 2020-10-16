@@ -5,14 +5,14 @@ import (
 )
 
 type IEngine interface {
-	set_input(intput *map[string]interface{})
+	set_input(intput *Dict)
 	run() ([]byte, error)
 }
 
 type EngineFactory struct {
 }
 
-func (EngineFactory) createEngine(engine_type string, query string, input *map[string]interface{}) (engine IEngine, err error) {
+func (EngineFactory) createEngine(engine_type string, query string, input *Dict) (engine IEngine, err error) {
 	switch engine_type {
 	case "jq":
 		engine = &JqEngine{query, input}

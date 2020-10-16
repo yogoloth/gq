@@ -11,6 +11,8 @@ import (
 	//"github.com/yogoloth/yaml"
 )
 
+type Dict map[string]interface{}
+
 type config_t struct {
 	verbose   bool
 	engine    string
@@ -63,7 +65,8 @@ func do_main(config *config_t) (output []byte, err error) {
 	var input []byte
 	var engine IEngine
 	var factory EngineFactory
-	mid_result := make(map[string]interface{})
+	mid_result := Dict{}
+	//mid_result := []map[string]interface{}
 	out_buffer := bytes.Buffer{}
 
 	if config.verbose {

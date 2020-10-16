@@ -10,10 +10,10 @@ import (
 
 type LibjqEngine struct {
 	query string
-	input *map[string]interface{}
+	input *Dict
 }
 
-func (e *LibjqEngine) set_input(input *map[string]interface{}) {
+func (e *LibjqEngine) set_input(input *Dict) {
 	e.input = input
 }
 
