@@ -55,6 +55,12 @@ func TestMain(t *testing.T) {
 		config = config_t{false, "libjq", "yaml", "yaml", `.[][]|select(.servers[0]|capture(".*oper.*"))`, request_file}
 		assertMainSuccess(t, &config, hope_file)
 	})
+	t.Run("list all servers", func(t *testing.T) {
+		hope_file := "sample/prod_default_packages_array.yml"
+		request_file = "sample/prod_default_packages.yml"
+		config = config_t{false, "libjq", "yaml", "yaml", `.springboots[]|.servers`, request_file}
+		assertMainSuccess(t, &config, hope_file)
+	})
 }
 
 func TestSplitJson(t *testing.T) {

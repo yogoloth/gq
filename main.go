@@ -28,7 +28,7 @@ func SplitJson(json []byte) (json_lines []string) {
 	begin := 0
 	end := 0
 
-	if json[0] != '{' {
+	if json[0] != '{' && json[0] != '[' {
 		json_lines = append(json_lines, string(json))
 		return
 	}
@@ -36,13 +36,13 @@ func SplitJson(json []byte) (json_lines []string) {
 	for i := 0; i < len(json); i++ {
 		//fmt.Printf("%c-%d ", json[i], i)
 		switch json[i] {
-		case '{':
+		case '{', '[':
 			//fmt.Printf("%c\n", '{')
 			brackets++
 			if brackets == 1 {
 				begin = i
 			}
-		case '}':
+		case '}', ']':
 			//fmt.Printf("%c\n", '}')
 			brackets--
 			if brackets == 0 {
