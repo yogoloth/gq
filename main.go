@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"regexp"
 
 	"github.com/ghodss/yaml"
 	//"github.com/yogoloth/yaml"
@@ -68,6 +69,7 @@ func do_main(config *config_t) (output []byte, err error) {
 	mid_result := Dict{}
 	//mid_result := []map[string]interface{}
 	out_buffer := bytes.Buffer{}
+	is_array := false
 
 	if config.verbose {
 		fmt.Printf("config: %v\n\n", config)
@@ -81,6 +83,14 @@ func do_main(config *config_t) (output []byte, err error) {
 	if err != nil {
 		err = errors.New(fmt.Sprintf("read file %v error\n", err))
 		return
+	}
+
+	if is_array, _ = regexp.MatchString("^ *-", string(input)); is_array {
+		//input = format_input(input)
+		tmp_buff := bytes.Buffer{}
+		tmp_buff.WriteString("root:\n")
+		tmp_buff.Write(input)
+		input = tmp_buff.Bytes()
 	}
 
 	if config.from_type == "yaml" {
