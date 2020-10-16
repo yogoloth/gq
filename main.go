@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -81,12 +80,11 @@ func do_main(config *config_t) (output []byte, err error) {
 		input, err = ioutil.ReadFile(config.filepath)
 	}
 	if err != nil {
-		err = errors.New(fmt.Sprintf("read file %v error\n", err))
+		err = fmt.Errorf("read file %v error\n", err)
 		return
 	}
 
 	if is_array, _ = regexp.MatchString("^ *-", string(input)); is_array {
-		//input = format_input(input)
 		tmp_buff := bytes.Buffer{}
 		tmp_buff.WriteString("root:\n")
 		tmp_buff.Write(input)
@@ -95,11 +93,11 @@ func do_main(config *config_t) (output []byte, err error) {
 
 	if config.from_type == "yaml" {
 		if err = yaml.Unmarshal(input, &mid_result); err != nil {
-			err = errors.New(fmt.Sprintf("decode input yaml - %v\n", err))
+			err = fmt.Errorf("decode input yaml - %v\n", err)
 			return
 		}
 	} else {
-		err = errors.New(fmt.Sprintf("input type is not support yet: %v\n", config.from_type))
+		err = fmt.Errorf("input type is not support yet: %v\n", config.from_type)
 		return
 
 	}
@@ -115,13 +113,13 @@ func do_main(config *config_t) (output []byte, err error) {
 	}
 
 	if err != nil {
-		err = errors.New(fmt.Sprintf("create engine err: %v\n", err))
+		err = fmt.Errorf("create engine err: %v\n", err)
 		return
 	}
 
 	buffer, err = engine.run()
 	if err != nil {
-		err = errors.New(fmt.Sprintf("run jq err: %v\n", err))
+		err = fmt.Errorf("run jq err: %v\n", err)
 		return
 	}
 
@@ -132,13 +130,13 @@ func do_main(config *config_t) (output []byte, err error) {
 		js_lines := SplitJson(buffer)
 
 		if js_lines == nil {
-			err = errors.New(fmt.Sprintf("mid json parse error: %v\n,data is:\n\n%v\n", err, buffer))
+			err = fmt.Errorf("mid json parse error: %v\n,data is:\n\n%v\n", err, buffer)
 			return
 		}
 		for i := 0; i < len(js_lines); i++ {
 			var mid []byte
 			if mid, err = yaml.JSONToYAML([]byte(js_lines[i])); err != nil {
-				err = errors.New(fmt.Sprintf("convert mid data to yaml err: %v, %s\n", err, js_lines[i]))
+				err = fmt.Errorf("convert mid data to yaml err: %v, %s\n", err, js_lines[i])
 				return
 			} else {
 				out_buffer.Write(mid)
@@ -152,7 +150,7 @@ func do_main(config *config_t) (output []byte, err error) {
 		output = buffer
 		return
 	} else {
-		err = errors.New(fmt.Sprintf("output type is not support yet: %v\n", config.from_type))
+		err = fmt.Errorf("output type is not support yet: %v\n", config.from_type)
 		return
 	}
 	return
