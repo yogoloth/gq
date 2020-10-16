@@ -1,0 +1,109 @@
+dirs:
+- /var/log/txxx/mxxx-manage-portal
+- /opt/txxx/timaapps/mxxx/mxxx-manage-portal
+mxxx-manage-portal: null
+name: mxxx-manage-portal
+servers:
+- mxxx-opernodejs1.pro
+- mxxx-opernodejs2.pro
+---
+dirs:
+- /var/log/txxx/mxxx-appstore-manage
+- /opt/txxx/timaapps/mxxx/mxxx-appstore-manage
+mxxx-appstore-manage: null
+name: mxxx-appstore-manage
+servers:
+- mxxx-opernodejs1.pro
+- mxxx-opernodejs2.pro
+start: /opt/txxx/timaapps/mxxx/mxxx-appstore-manage/run.sh start
+stop: /opt/txxx/timaapps/mxxx/mxxx-appstore-manage/run.sh stop
+---
+dirs:
+- /var/log/txxx/mxxx-operation-manager
+- /opt/txxx/timaapps/mxxx/mxxx-operation-manager
+mxxx-operation-manager: null
+name: mxxx-operation-manager
+servers:
+- mxxx-opernodejs1.pro
+- mxxx-opernodejs2.pro
+start: /opt/txxx/timaapps/mxxx/mxxx-operation-manager/run.sh start
+stop: /opt/txxx/timaapps/mxxx/mxxx-operation-manager/run.sh stop
+---
+dirs:
+- /var/log/txxx/mxxx-canal-sync
+- /opt/txxx/timaapps/mxxx/mxxx-canal-sync
+mxxx-canal-sync: null
+name: mxxx-canal-sync
+servers:
+- mxxx-opernodejs1.pro
+start: /opt/txxx/timaapps/mxxx/mxxx-canal-sync/run.sh start
+stop: /opt/txxx/timaapps/mxxx/mxxx-canal-sync/run.sh stop
+---
+dirs:
+- /var/log/txxx/mxxx-canal-sync-dms
+- /opt/txxx/timaapps/mxxx/mxxx-canal-sync-dms
+mxxx-canal-sync-dms: null
+name: mxxx-canal-sync-dms
+servers:
+- mxxx-opernodejs2.pro
+start: /opt/txxx/timaapps/mxxx/mxxx-canal-sync-dms/run.sh start
+stop: /opt/txxx/timaapps/mxxx/mxxx-canal-sync-dms/run.sh stop
+---
+canal: null
+dirs:
+- /var/log/txxx/canal
+- /opt/txxx/timaapps/mxxx/canal-prod
+- /opt/txxx/timaapps/mxxx/canal-prod/bin
+- /opt/txxx/timaapps/mxxx/canal-prod/conf/prod
+- /opt/txxx/timaapps/mxxx/canal-prod/conf/example
+name: canal
+servers:
+- mxxx-opernodejs1.pro
+start: /opt/txxx/timaapps/mxxx/canal-prod/bin/startup.sh
+stop: /opt/txxx/timaapps/mxxx/canal-prod/bin/stop.sh
+---
+canal2: null
+dirs:
+- /var/log/txxx/canal
+- /opt/txxx/timaapps/mxxx/canal-prod2
+- /opt/txxx/timaapps/mxxx/canal-prod2/bin
+- /opt/txxx/timaapps/mxxx/canal-prod2/conf/prod
+- /opt/txxx/timaapps/mxxx/canal-prod2/conf/example
+name: canal2
+servers:
+- mxxx-opernodejs2.pro
+start: /opt/txxx/timaapps/mxxx/canal-prod2/bin/startup.sh
+stop: /opt/txxx/timaapps/mxxx/canal-prod2/bin/stop.sh
+---
+dirs:
+- /var/log/txxx/mxxx-showcar-manage
+- /opt/txxx/timaapps/mxxx/mxxx-showcar-manage
+mxxx-showcar-manage: null
+name: mxxx-showcar-manage
+servers:
+- mxxx-opersp3.pro
+- mxxx-opersp4.pro
+start: /opt/txxx/timaapps/mxxx/mxxx-showcar-manage/run.sh start
+stop: /opt/txxx/timaapps/mxxx/mxxx-showcar-manage/run.sh stop
+---
+dirs:
+- /var/log/txxx/mxxx-mnoreconciliation-manage
+- /opt/txxx/timaapps/mxxx/mxxx-mnoreconciliation-manage
+mxxx-mnoreconciliation-manage: null
+name: mxxx-mnoreconciliation-manage
+servers:
+- mxxx-opersp3.pro
+- mxxx-opersp4.pro
+start: /opt/txxx/timaapps/mxxx/mxxx-mnoreconciliation-manage/run.sh start
+stop: /opt/txxx/timaapps/mxxx/mxxx-mnoreconciliation-manage/run.sh stop
+---
+37w-calendar: null
+dirs:
+- /var/log/txxx/37w-calendar
+- /opt/txxx/timaapps/mxxx/37w-calendar
+name: 37w-calendar
+servers:
+- mxxx-opernodejs1.pro
+- mxxx-opernodejs2.pro
+start: /opt/txxx/timaapps/mxxx/37w-calendar/run.sh start
+stop: /opt/txxx/timaapps/mxxx/37w-calendar/run.sh stop

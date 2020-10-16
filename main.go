@@ -1,13 +1,14 @@
 package main
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
 
-	//"github.com/ghodss/yaml"
-	"github.com/yogoloth/yaml"
+	"github.com/ghodss/yaml"
+	//"github.com/yogoloth/yaml"
 )
 
 type config_t struct {
@@ -19,12 +20,46 @@ type config_t struct {
 	filepath  string
 }
 
+func SplitJson(json []byte) (json_lines []string) {
+	brackets := 0
+	begin := 0
+	end := 0
+
+	for i := 0; i < len(json); i++ {
+		//fmt.Printf("%c-%d ", json[i], i)
+		switch json[i] {
+		case '{':
+			//fmt.Printf("%c\n", '{')
+			brackets++
+			if brackets == 1 {
+				begin = i
+			}
+		case '}':
+			//fmt.Printf("%c\n", '}')
+			brackets--
+			if brackets == 0 {
+				end = i
+			}
+		}
+		if end > begin {
+			//json_line := string(json[begin : end+1])
+			//fmt.Printf("got %s\n", json_line)
+			json_lines = append(json_lines, string(json[begin:end+1]))
+			begin = 0
+			end = 0
+		}
+	}
+
+	return
+}
+
 func do_main(config *config_t) (output []byte, err error) {
 	var buffer []byte
 	var input []byte
 	var engine IEngine
 	var factory EngineFactory
 	mid_result := make(map[string]interface{})
+	out_buffer := bytes.Buffer{}
 
 	if config.verbose {
 		fmt.Printf("config: %v\n\n", config)
@@ -68,11 +103,27 @@ func do_main(config *config_t) (output []byte, err error) {
 	}
 
 	if config.to_type == "yaml" {
-		if output, err = yaml.JSONToYAML(buffer); err != nil {
-			err = errors.New(fmt.Sprintf("convert mid data to yaml err: %v\n", err))
+		//r, _ := regexp.Compile("\n")
+		//js_lines := r.FindAllString(string(buffer), -1)
+
+		js_lines := SplitJson(buffer)
+
+		if js_lines == nil {
+			err = errors.New(fmt.Sprintf("mid json parse error: %v\n,data is:\n\n%v\n", err, buffer))
 			return
-		} else {
-			return
+		}
+		for i := 0; i < len(js_lines); i++ {
+			var mid []byte
+			if mid, err = yaml.JSONToYAML([]byte(js_lines[i])); err != nil {
+				err = errors.New(fmt.Sprintf("convert mid data to yaml err: %v, %s\n", err, js_lines[i]))
+				return
+			} else {
+				out_buffer.Write(mid)
+				if i < len(js_lines)-1 {
+					out_buffer.WriteString("---\n")
+				}
+			}
+			output = out_buffer.Bytes()
 		}
 	} else if config.to_type == "json" {
 		output = buffer
@@ -81,6 +132,7 @@ func do_main(config *config_t) (output []byte, err error) {
 		err = errors.New(fmt.Sprintf("output type is not support yet: %v\n", config.from_type))
 		return
 	}
+	return
 
 }
 

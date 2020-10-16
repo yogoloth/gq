@@ -51,3 +51,70 @@ func TestMain(t *testing.T) {
 		assertMainSuccess(t, &config, hope_file)
 	})
 }
+
+func TestSplitJson(t *testing.T) {
+	request := `{
+  "mxxx-charging": null,
+  "name": "mxxx-charging",
+  "servers": [
+    "mxxxsp78.pro",
+    "mxxxsp79.pro"
+  ],
+  "dirs": [
+    "/var/log/txxx/mxxx-charging",
+    "/opt/txxx/timaapps/mxxx/mxxx-charging",
+    "/opt/txxxapps/mxxx-charging"
+  ],
+  "stop": "/opt/txxx/timaapps/mxxx/mxxx-charging/run.sh stop",
+  "start": "/opt/txxx/timaapps/mxxx/mxxx-charging/run.sh start"
+}
+{
+  "mxxx-climatization": null,
+  "name": "mxxx-climatization",
+  "servers": [
+    "mxxxsp78.pro",
+    "mxxxsp79.pro"
+  ],
+  "dirs": [
+    "/var/log/txxx/mxxx-climatization",
+    "/opt/txxx/timaapps/mxxx/mxxx-climatization",
+    "/opt/txxxapps/mxxx-climatization"
+  ],
+  "stop": "/opt/txxx/timaapps/mxxx/mxxx-climatization/run.sh stop",
+  "start": "/opt/txxx/timaapps/mxxx/mxxx-climatization/run.sh start"
+}`
+	want := []string{`{
+  "mxxx-charging": null,
+  "name": "mxxx-charging",
+  "servers": [
+    "mxxxsp78.pro",
+    "mxxxsp79.pro"
+  ],
+  "dirs": [
+    "/var/log/txxx/mxxx-charging",
+    "/opt/txxx/timaapps/mxxx/mxxx-charging",
+    "/opt/txxxapps/mxxx-charging"
+  ],
+  "stop": "/opt/txxx/timaapps/mxxx/mxxx-charging/run.sh stop",
+  "start": "/opt/txxx/timaapps/mxxx/mxxx-charging/run.sh start"
+}`, `{
+  "mxxx-climatization": null,
+  "name": "mxxx-climatization",
+  "servers": [
+    "mxxxsp78.pro",
+    "mxxxsp79.pro"
+  ],
+  "dirs": [
+    "/var/log/txxx/mxxx-climatization",
+    "/opt/txxx/timaapps/mxxx/mxxx-climatization",
+    "/opt/txxxapps/mxxx-climatization"
+  ],
+  "stop": "/opt/txxx/timaapps/mxxx/mxxx-climatization/run.sh stop",
+  "start": "/opt/txxx/timaapps/mxxx/mxxx-climatization/run.sh start"
+}`}
+	got := SplitJson([]byte(request))
+
+	if got[0] != want[0] || got[1] != want[1] {
+		t.Errorf("SplitJsonError \nwant:\n%v \ngot: \n%v \n", want, got)
+	}
+}
