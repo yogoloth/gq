@@ -34,6 +34,11 @@ func TestMain(t *testing.T) {
 		config = config_t{false, "libjq", "yaml", "yaml", ".", request_file}
 		assertMainSuccess(t, &config, hope_file)
 	})
+	t.Run("input is yaml array", func(t *testing.T) {
+		hope_file := "sample/test_array.yml"
+		config = config_t{false, "libjq", "yaml", "yaml", ".", hope_file}
+		assertMainSuccess(t, &config, hope_file)
+	})
 	t.Run("run yq with jq add", func(t *testing.T) {
 		hope_file := "sample/test_add.yml"
 		config = config_t{false, "jq", "yaml", "yaml", `.a.b.c="世界"`, request_file}

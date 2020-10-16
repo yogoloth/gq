@@ -1,0 +1,28 @@
+- /opt/timaapps/xxxx-music-api/xxxx-music-assemble-2.7.jar: /root/xxxx/files/public_prod/xxxx-music-api/jar/opt/timaapps/xxxx-music-api/xxxx-music-assemble-2.7.jar
+  dirs:
+  - /var/log/tima/xxxx-music-api
+  - /opt/tima/timaapps/xxxx/xxxx-music-api
+  - /opt/timaapps/xxxx-music-api
+  - /opt/tima/timaapps/xxxx-music-api
+  name: xxxx-music-api
+  servers:
+  - xxxxsp68.pro
+  - xxxxsp69.pro
+  - xxxxsp70.pro
+  - xxxxsp71.pro
+  start: /opt/tima/timaapps/xxxx/xxxx-music-api/run.sh start
+  stop: /opt/tima/timaapps/xxxx/xxxx-music-api/run.sh stop
+- /opt/timaapps/xxxx-music-api/xxxx-music-assemble-2.7.jar: /root/xxxx/files/public_prod/xxxx-music-api/jar/opt/timaapps/xxxx-music-api/xxxx-music-assemble-2.7.jar
+  dirs:
+  - /var/log/tima/xxxx-music-api
+  - /opt/tima/timaapps/xxxx/xxxx-music-api
+  - /opt/timaapps/xxxx-music-api
+  - /opt/tima/timaapps/xxxx-music-api
+  name: xxxx-music-api
+  servers:
+  - xxxxsp68.pro
+  - xxxxsp69.pro
+  - xxxxsp70.pro
+  - xxxxsp71.pro
+  start: /opt/tima/timaapps/xxxx/xxxx-music-api/run.sh start
+  stop: /opt/tima/timaapps/xxxx/xxxx-music-api/run.sh stop

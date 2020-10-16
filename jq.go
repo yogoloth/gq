@@ -10,10 +10,10 @@ import (
 
 type JqEngine struct {
 	query string
-	input *Dict
+	input interface{}
 }
 
-func (e *JqEngine) set_input(input *Dict) {
+func (e *JqEngine) set_input(input interface{}) {
 	e.input = input
 }
 
