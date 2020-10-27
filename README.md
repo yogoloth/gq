@@ -1,6 +1,6 @@
 # gq
 
-go clone of yq (https://github.com/kislyuk/yq)
+go version of yq (https://github.com/kislyuk/yq)
 
 # compile
 
